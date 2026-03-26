@@ -1,0 +1,44 @@
+$black: #0a0a0a;
+$paper: #fafaf8;
+$mid: #f3f2ef;
+$line: #e8e7e3;
+$line2: #d4d2cb;
+$gray: #8a8a85;
+$lgray: #c0beb8;
+$vivid: #2a7a3b;
+$red: #ff3c5c;
+$amber: #ff9500;
+$amber-02: #d97706;
+$blue: #007aff;
+
+$vivid-bg: rgba(42, 122, 59, 0.1);
+$vivid-bdr: rgba(42, 122, 59, 0.3);
+$red-bg: rgba(255, 60, 92, 0.08);
+$red-bdr: rgba(255, 60, 92, 0.25);
+$amb-bg: rgba(255, 149, 0, 0.08);
+$amb-bdr: rgba(255, 149, 0, 0.25);
+$blu-bg: rgba(0, 122, 255, 0.08);
+$blu-bdr: rgba(0, 122, 255, 0.25);
+
+$conf-conmebol: #16a34a;
+$conf-uefa: #1d4ed8;
+$conf-concacaf: #dc2626;
+$conf-afc: $amber-02;
+$conf-caf: #7c3aed;
+
+$group-a: $black;
+$group-b: #00a859;
+$group-c: $red;
+$group-d: #7b2fbe;
+$group-e: #0057b7;
+$group-f: $amber-02;
+$group-g: #0f766e;
+$group-h: #c026d3;
+
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1440px;
+
+$ease-default: 0.15s ease;
+$ease-smooth: 0.25s ease;
+$ease-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
