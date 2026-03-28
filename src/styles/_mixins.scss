@@ -25,13 +25,13 @@
 }
 
 @mixin tablet {
-  @media (min-width: $bp-tablet) and (max-width: #{$bp-laptop - 1}) {
+  @media (min-width: $bp-tablet) {
     @content;
   }
 }
 
 @mixin laptop {
-  @media (min-width: $bp-laptop) and (max-width: #{$bp-desktop - 1}) {
+  @media (min-width: $bp-laptop) {
     @content;
   }
 }
