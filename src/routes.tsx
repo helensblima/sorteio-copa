@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router'
-import { Layout } from '@/components/Layout'
+import { Layout } from '@/components'
 
 export function AppRoutes() {
   return (
