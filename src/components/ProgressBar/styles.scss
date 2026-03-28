@@ -1,0 +1,73 @@
+.progress-bar {
+  gap: 0.25rem;
+  
+  @include flex-center;
+  @include laptop {
+    gap: 0.5rem;
+  }
+
+  &__step {
+    @include flex-center;
+    gap: 0.25rem;
+
+    &--active {
+      .progress-bar__number {
+        background-color: $black;
+        color: white;
+      }
+
+      .progress-bar__name {
+        color: $black;
+      }
+    }
+
+    &--done {
+      .progress-bar__number {
+        background-color: $vivid;
+        color: white;
+      }
+
+      .progress-bar__name {
+        color: $vivid;
+      }
+    }
+  }
+
+  &__number {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: $line;
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: $lgray;
+    transition: all 0.25s;
+    @include flex-center;
+  }
+
+  &__name {
+    display: none;
+
+    @include laptop {
+      display: inline;
+      font-weight: 600;
+      color: $lgray;
+      transition: all .3s;
+    }
+  }
+
+  &__connector {
+    width: 0.625rem;
+    height: 0.11rem;
+    background: $line;
+    transition: background .3s;
+
+    @include laptop {
+      width: 0.8rem;
+    }
+
+    &--done {
+      background-color: $vivid;
+    }
+  }
+}
