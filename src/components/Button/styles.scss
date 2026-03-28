@@ -1,0 +1,103 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4375rem;
+  padding: 0.5625rem 1.125rem;
+  border-radius: 0.625rem;
+  border: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $ease-default 56ms;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+
+  &:disabled {
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  @include focus-ring;
+
+  &.default {
+    background: $black;
+    color: $white;
+
+    &:hover {
+      background: $black-02;
+      transform: translateY(-0.0625rem);
+    }
+  }
+
+  &--accent {
+    background: $vivid;
+    color: $white;
+
+    &:hover {
+      background: $green;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $black;
+    border: 1.5px solid $line;
+
+    &:hover {
+      border-color: $line2;
+    }
+  }
+
+  &--ghost-danger {
+    background: transparent;
+    color: $black;
+    border: 1.5px solid $line;
+
+    &:hover {
+      border-color: $red-bdr;
+      color: $red;
+      background: $red-bg;
+    }
+  }
+
+  &--icon {
+    width: 2.125rem;
+    height: 2.125rem;
+    padding: 0;
+    border-radius: 0.375rem;
+    border: 1.5px solid $line;
+    background: transparent;
+    font-size: 1rem;
+    color: $gray;
+
+    &:hover {
+      border-color: $line2;
+      color: $black;
+    }
+  }
+
+  &--full {
+    width: 100%;
+    padding: 0.75rem 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+
+  &--sm {
+    font-size: 0.75rem;
+    padding: 0.4375rem 0.75rem;
+  }
+
+  &--lg {
+    font-size: 0.9375rem;
+    padding: 0.875rem 1.125rem;
+  }
+}
