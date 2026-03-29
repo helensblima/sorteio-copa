@@ -1,12 +1,36 @@
 .homepage {
-  padding: 2rem 0 1.75rem;
+  padding-top: 2rem;
 
   @include tablet {
-    padding: 3.25rem 0 2.25rem;
+    padding-top: 3.25rem;
   }
 
   @include laptop {
-    padding: 5rem 3.75rem 5rem 0;
+    padding: 0;
+    @include flex-center;
+  }
+
+  &__content {
+    margin: 0 auto;
+    max-width: 70rem;
+    display: grid;
+    min-height: calc(100vh - 56px);
+
+    @include laptop {
+      padding: 0 1.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+
+    @include laptop {
+      padding-right: 3.75rem;
+    }
   }
 
   &__pre-title {
@@ -81,6 +105,44 @@
 
     @include tablet {
       padding: 0 1.5rem;
+    }
+
+    @include laptop {
+      padding: 0;
+    }
+  }
+
+  &__right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    background: $vivid;
+    padding: 3rem 1rem;
+    overflow: hidden;
+
+    @include tablet {
+      padding: 3rem 1.5rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 180, 70, 0.05) 0px,
+        rgba(0, 180, 70, 0.05) 48px,
+        rgba(0, 140, 50, 0.08) 48px,
+        rgba(0, 140, 50, 0.08) 96px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .group-card:hover {
+      transform: scale(1.04) translateY(-4px);
     }
   }
 }

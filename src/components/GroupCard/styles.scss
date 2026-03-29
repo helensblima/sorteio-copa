@@ -1,0 +1,94 @@
+.group-card {
+  background: $white;
+  border: 1.5px solid $line;
+  border-radius: 10px;
+  overflow: hidden;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease,
+    border-color 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+
+  &:hover {
+    border-color: $line2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  }
+
+  &__header {
+    padding: 0.75rem 0.875rem;
+
+    @include flex-between;
+  }
+
+  &__letter {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $white;
+
+    @include flex-center;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: $white;
+    letter-spacing: -0.01em;
+  }
+
+  &__row {
+    gap: 0.563rem;
+    padding: 0.563rem 0.875rem;
+    border-top: 1px solid $line;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    @include flex-between;
+  }
+
+  &__left-row {
+    gap: 0.625rem;
+
+    @include flex-center;
+  }
+
+  &__flag {
+    border-radius: 3px;
+    width: 1.5rem;
+  }
+
+  &__conf {
+    font-size: 0.5rem;
+    font-weight: 700;
+    padding: 0.125rem 0.313rem;
+    border-radius: 3px;
+  }
+
+  &__conf--conm {
+    background-color: $bg-conmebol;
+    color: $conf-conmebol;
+  }
+
+  &__conf--uefa {
+    background: $bg-uefa;
+    color: $conf-uefa;
+  }
+
+  &__conf--conc {
+    background: $bg-concacaf;
+    color: $conf-concacaf;
+  }
+
+  &__conf--afc {
+    background: $bg-afc;
+    color: $conf-afc;
+  }
+
+  &__conf--caf {
+    background: $bg-caf;
+    color: $conf-caf;
+  }
+}
