@@ -4,20 +4,20 @@ export interface StepConfig {
   path: string
 }
 
-export const STEPS:StepConfig[] = [
-  { 
-    number: 1, 
-    name: 'Config', 
-    path: '/configuracao-sorteio' 
+export const STEPS: StepConfig[] = [
+  {
+    number: 1,
+    name: 'Config',
+    path: '/configuracao-sorteio',
   },
-  { 
-    number: 2, 
-    name: 'Times', 
-    path: '/escolha-selecoes' 
+  {
+    number: 2,
+    name: 'Times',
+    path: '/escolha-selecoes',
   },
-  { 
-    number: 3, 
-    name: 'Resultado', 
-    path: '/resultado-sorteio' 
+  {
+    number: 3,
+    name: 'Resultado',
+    path: '/resultado-sorteio',
   },
 ]

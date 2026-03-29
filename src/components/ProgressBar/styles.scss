@@ -1,6 +1,6 @@
 .progress-bar {
   gap: 0.25rem;
-  
+
   @include flex-center;
   @include laptop {
     gap: 0.5rem;
@@ -52,7 +52,7 @@
       display: inline;
       font-weight: 600;
       color: $lgray;
-      transition: all .3s;
+      transition: all 0.3s;
     }
   }
 
@@ -60,7 +60,7 @@
     width: 0.625rem;
     height: 0.11rem;
     background: $line;
-    transition: background .3s;
+    transition: background 0.3s;
 
     @include laptop {
       width: 0.8rem;
