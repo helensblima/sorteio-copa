@@ -24,13 +24,12 @@
 
   @include focus-ring;
 
-  &.default {
+  &--default {
     background: $black;
     color: $white;
 
     &:hover {
       background: $black-02;
-      transform: translateY(-0.0625rem);
     }
   }
 
