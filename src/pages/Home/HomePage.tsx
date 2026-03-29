@@ -14,8 +14,7 @@ export function HomePage() {
           <br /> da Copa
         </h1>
         <p className='homepage__text'>
-          Monte os grupos, escolha os países e sorteie. 
-          Configure as regras e ajuste manualmente.
+          Monte os grupos, escolha os países e sorteie. Configure as regras e ajuste manualmente.
         </p>
         <div className='homepage__actions'>
           <Button variant='default' full between onClick={() => navigate('/configuracao-sorteio')}>
