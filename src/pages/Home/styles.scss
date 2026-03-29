@@ -1,0 +1,86 @@
+.homepage {
+  padding: 2rem 0 1.75rem;
+
+  @include tablet {
+    padding: 3.25rem 0 2.25rem;
+  }
+
+  @include laptop {
+    padding: 5rem 3.75rem 5rem 0;
+  }
+
+  &__pre-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.688rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $vivid;
+    margin-bottom: 1.5rem;
+
+    &::before {
+      content: '';
+      width: 1.5rem;
+      height: 0.063rem;
+      background: $vivid;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1.25rem;
+    font-size: 2.75rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.93;
+
+    @include laptop {
+      font-size: 3.5rem;
+    }
+
+    @include desktop {
+      font-size: 4.5rem;
+    }
+
+    em {
+      font-style: normal;
+      color: $vivid;
+    }
+  }
+
+  &__text {
+    margin-bottom: 2.5rem;
+    max-width: 22.5rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: $gray;
+    line-height: 1.65;
+
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  &__actions {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+
+    @include tablet {
+      max-width: 17.5rem;
+    }
+  }
+
+  &__pre-title,
+  &__title,
+  &__text,
+  &__actions {
+    padding: 0 1rem;
+
+    @include tablet {
+      padding: 0 1.5rem;
+    }
+  }
+}
