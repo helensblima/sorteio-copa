@@ -6,18 +6,18 @@ export function HomePage() {
   const { flags, navigate, previewGroups } = useHomePage()
 
   return (
-    <div className='homepage'>
-      <div className='homepage__content'>
-        <div className='homepage__left'>
-          <div className='homepage__pre-title'>World Cup 2026</div>
-          <h1 className='homepage__title'>
+    <div className='home-page'>
+      <div className='home-page__content'>
+        <div className='home-page__left'>
+          <div className='home-page__pre-title'>World Cup 2026</div>
+          <h1 className='home-page__title'>
             Simule <br />o <em>Sorteio</em>
             <br /> da Copa
           </h1>
-          <p className='homepage__text'>
+          <p className='home-page__text'>
             Monte os grupos, escolha os países e sorteie. Configure as regras e ajuste manualmente.
           </p>
-          <div className='homepage__actions'>
+          <div className='home-page__actions'>
             <Button
               variant='default'
               full
@@ -33,7 +33,7 @@ export function HomePage() {
           <CountriesCarousel flags={flags} />
         </div>
 
-        <div className='homepage__right'>
+        <div className='home-page__right'>
           {previewGroups.map((group) => (
             <GroupCard
               key={group.letter}
