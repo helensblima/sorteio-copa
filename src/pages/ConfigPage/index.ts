@@ -1,2 +1,1 @@
-export { HomePage } from './Home'
 export { ConfigPage } from './ConfigPage'

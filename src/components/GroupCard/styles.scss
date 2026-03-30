@@ -3,12 +3,12 @@
   border: 1.5px solid $line;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
   transition:
     transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.22s ease,
     border-color 0.2s ease;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  position: relative;
 
   &:hover {
     border-color: $line2;
@@ -56,8 +56,10 @@
   }
 
   &__flag {
-    border-radius: 3px;
     width: 1.5rem;
+    height: auto;
+    border-radius: 3px;
+    object-fit: cover;
   }
 
   &__conf {

@@ -50,6 +50,7 @@
 
     @include laptop {
       display: inline;
+      font-size: 0.813rem;
       font-weight: 600;
       color: $lgray;
       transition: all 0.3s;

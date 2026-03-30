@@ -29,7 +29,13 @@ export function GroupCard({ letter, color, teams, onSwap }: GroupCardProps) {
       {teams.map((team, index) => (
         <div key={team.name} className='group-card__row'>
           <div className='group-card__left-row'>
-            <img src={team.flag} alt={team.alt} className='group-card__flag' />
+            <img
+              src={team.flag}
+              alt={team.alt}
+              className='group-card__flag'
+              width={24}
+              height={18}
+            />
             <span className='group-card__name'>{team.name}</span>
           </div>
           <div className='group-card__right-row'>

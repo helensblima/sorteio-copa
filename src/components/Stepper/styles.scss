@@ -1,0 +1,54 @@
+.stepper {
+  &__control {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr 2.75rem;
+    align-items: center;
+    border: 1.5px solid $line;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    background: $mid;
+  }
+
+  &__btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    background: transparent;
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: $gray;
+    cursor: pointer;
+    transition: all $ease-default;
+
+    @include flex-center;
+
+    &:hover {
+      background: $line;
+      color: $black;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
+
+  &__value {
+    padding: 0.5rem 0;
+    border-inline: 1.5px solid $line;
+    font-size: 1.625rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: $black;
+    text-align: center;
+    line-height: 1;
+  }
+
+  &__hint {
+    margin-top: 0.375rem;
+    display: block;
+    font-size: 0.6875rem;
+    color: $lgray;
+    text-align: center;
+  }
+}

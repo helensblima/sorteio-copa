@@ -1,0 +1,32 @@
+.toggle {
+  width: 2.25rem;
+  height: 1.25rem;
+  position: relative;
+  border-radius: 6.25rem;
+  background: $line2;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+
+  &::after {
+    width: 1rem;
+    height: 1rem;
+    top: 0.125rem;
+    left: 0.125rem;
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+
+  &--on {
+    background: $vivid;
+
+    &::after {
+      transform: translateX(1rem);
+    }
+  }
+}
