@@ -16,9 +16,12 @@
     display: grid;
     min-height: calc(100vh - 56px);
 
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+
     @include laptop {
       padding: 0 1.5rem;
-      grid-template-columns: 1fr 1fr;
     }
   }
 
