@@ -1,0 +1,67 @@
+.counter-ring {
+  padding: 0.875rem 1rem;
+  background: $mid;
+  border: 1.5px solid $line;
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+
+  &__visual {
+    position: relative;
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+    @include flex-center;
+  }
+
+  &__svg {
+    width: 3.25rem;
+    height: 3.25rem;
+    transform: rotate(-90deg);
+  }
+
+  &__track {
+    fill: none;
+    stroke: $line;
+    stroke-width: 4;
+  }
+
+  &__fill {
+    fill: none;
+    stroke: $vivid;
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s ease;
+  }
+
+  &__number {
+    position: absolute;
+    font-size: 0.875rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+
+    &--ready {
+      color: $vivid;
+    }
+  }
+
+  &__main {
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+
+    span {
+      font-size: 0.875rem;
+      color: $lgray;
+      font-weight: 500;
+    }
+  }
+
+  &__sub {
+    font-size: 0.75rem;
+    color: $gray;
+    margin-top: 0.125rem;
+  }
+}

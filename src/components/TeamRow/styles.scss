@@ -1,0 +1,101 @@
+.team-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6875rem;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid $line;
+  cursor: pointer;
+  transition: background 0.1s;
+  user-select: none;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $mid;
+  }
+
+  &--selected {
+    background: $bg-01;
+
+    &:hover {
+      background: $bg-02;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  @include focus-ring;
+
+  &__flag {
+    width: 1.25rem;
+    height: auto;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    flex: 1;
+    letter-spacing: -0.01em;
+  }
+
+  &__code {
+    font-size: 0.625rem;
+    color: $lgray;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  &__conf {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.4375rem;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+
+    &--conmebol {
+      background: $bg-conmebol;
+      color: $conf-conmebol;
+    }
+    &--uefa {
+      background: $bg-uefa;
+      color: $conf-uefa;
+    }
+    &--concacaf {
+      background: $bg-concacaf;
+      color: $conf-concacaf;
+    }
+    &--afc {
+      background: $bg-afc;
+      color: $conf-afc;
+    }
+    &--caf {
+      background: $bg-caf;
+      color: $conf-caf;
+    }
+  }
+
+  &__check {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 1.5px solid $line2;
+    flex-shrink: 0;
+    font-size: 0.6875rem;
+    font-weight: 700;
+
+    @include flex-center;
+
+    .team-row--selected & {
+      background: $vivid;
+      border-color: $vivid;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.filter-chip {
+  display: flex;
+  gap: 0.3125rem;
+  flex-wrap: wrap;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.6875rem;
+    border-radius: 6.25rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    border: 1.5px solid $line;
+    background: transparent;
+    color: $gray;
+    cursor: pointer;
+    transition: all $ease-default;
+
+    &:hover {
+      border-color: $line2;
+      color: $black;
+    }
+
+    &--active {
+      border-color: $black;
+      background: $black;
+      color: $white;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  &__dot {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+}
