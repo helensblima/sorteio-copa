@@ -32,7 +32,7 @@
     stroke: $vivid;
     stroke-width: 4;
     stroke-linecap: round;
-    transition: stroke-dashoffset 0.4s ease;
+    transition: stroke-dashoffset $ease-slow;
   }
 
   &__number {

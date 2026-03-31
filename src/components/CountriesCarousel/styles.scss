@@ -5,7 +5,7 @@
   margin-top: 2.5rem;
   border-top: 1px solid $line;
   border-bottom: 1px solid $line;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: $mask-carousel;
 
   &__track {
     display: flex;
@@ -41,14 +41,5 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-  }
-}
-
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
   }
 }
