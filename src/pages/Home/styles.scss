@@ -14,7 +14,7 @@
     margin: 0 auto;
     max-width: 70rem;
     display: grid;
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 3.56rem);
 
     @include tablet {
       grid-template-columns: 1fr 1fr;
