@@ -3,7 +3,7 @@ import './styles.scss'
 interface GroupTeam {
   flag?: string
   name: string
-  code: string
+  code?: string
   conf?: string
   confClass?: string
   alt?: string

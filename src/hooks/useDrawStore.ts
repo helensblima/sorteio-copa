@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 import { drawGroups } from '@/services/drawGroups'
 import { getTeams } from '@/repositories/teamRepository'
+import { saveState, loadState, clearState } from '@/repositories/localStorageRepo'
 import type { Group } from '@/types'
+
 interface DrawState {
   nGroups: number
   groupSize: number
@@ -24,26 +26,59 @@ interface DrawActions {
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value))
 
-const INITIAL_STATE = {
-  nGroups: 8,
-  groupSize: 4,
-  selected: new Set<string>(),
-  drawResult: null as Group[] | null,
-  isDrawing: false,
+function getInitialState(): DrawState {
+  const saved = loadState()
+
+  if (saved) {
+    return {
+      nGroups: saved.nGroups,
+      groupSize: saved.groupSize,
+      selected: new Set(saved.selected),
+      drawResult: saved.drawResult ?? null,
+      isDrawing: false,
+    }
+  }
+
+  return {
+    nGroups: 8,
+    groupSize: 4,
+    selected: new Set<string>(),
+    drawResult: null,
+    isDrawing: false,
+  }
+}
+
+function persist(state: DrawState) {
+  saveState({
+    nGroups: state.nGroups,
+    groupSize: state.groupSize,
+    selected: [...state.selected],
+    drawResult: state.drawResult,
+  })
 }
 
 export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
-  ...INITIAL_STATE,
+  ...getInitialState(),
 
-  setNGroups: (n) => set({ nGroups: clamp(n, 2, 8) }),
-  setGroupSize: (n) => set({ groupSize: clamp(n, 2, 4) }),
-  setPreset: (nGroups, groupSize) =>
+  setNGroups: (n) => {
+    set({ nGroups: clamp(n, 2, 8) })
+    persist(get())
+  },
+
+  setGroupSize: (n) => {
+    set({ groupSize: clamp(n, 2, 4) })
+    persist(get())
+  },
+
+  setPreset: (nGroups, groupSize) => {
     set({
       nGroups: clamp(nGroups, 2, 8),
       groupSize: clamp(groupSize, 2, 4),
-    }),
+    })
+    persist(get())
+  },
 
-  toggleTeam: (code) =>
+  toggleTeam: (code) => {
     set((state) => {
       const next = new Set(state.selected)
       if (next.has(code)) {
@@ -54,9 +89,14 @@ export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
         next.add(code)
       }
       return { selected: next }
-    }),
+    })
+    persist(get())
+  },
 
-  clearSelection: () => set({ selected: new Set<string>() }),
+  clearSelection: () => {
+    set({ selected: new Set<string>() })
+    persist(get())
+  },
 
   performDraw: () => {
     const { selected, nGroups, groupSize } = get()
@@ -68,10 +108,11 @@ export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
     setTimeout(() => {
       const result = drawGroups(selectedTeams, { nGroups, groupSize })
       set({ drawResult: result, isDrawing: false })
+      persist(get())
     }, 1500)
   },
 
-  swapTeams: (fromGroup, fromIndex, toGroup, toIndex) =>
+  swapTeams: (fromGroup, fromIndex, toGroup, toIndex) => {
     set((state) => {
       if (!state.drawResult) return state
 
@@ -86,11 +127,22 @@ export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
       next[toGroup].teams[toIndex] = teamA
 
       return { drawResult: next }
-    }),
+    })
+    persist(get())
+  },
 
   reDraw: () => {
     get().performDraw()
   },
 
-  reset: () => set({ ...INITIAL_STATE, selected: new Set<string>() }),
+  reset: () => {
+    set({
+      nGroups: 8,
+      groupSize: 4,
+      selected: new Set<string>(),
+      drawResult: null,
+      isDrawing: false,
+    })
+    clearState()
+  },
 }))

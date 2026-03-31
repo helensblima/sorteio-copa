@@ -3,7 +3,7 @@ import { useHomePage } from './useHomePage'
 import './styles.scss'
 
 export function HomePage() {
-  const { flags, navigate, previewGroups } = useHomePage()
+  const { hasData, flags, previewGroups, handleRestore, navigate } = useHomePage()
 
   return (
     <div className='home-page'>
@@ -26,7 +26,7 @@ export function HomePage() {
             >
               Começar sorteio <span>→</span>
             </Button>
-            <Button variant='ghost' full between>
+            <Button variant='ghost' full between disabled={!hasData} onClick={handleRestore}>
               Retomar salvo <span>↩</span>
             </Button>
           </div>
