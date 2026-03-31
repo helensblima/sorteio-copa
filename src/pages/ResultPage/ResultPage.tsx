@@ -18,7 +18,7 @@ export function ResultPage() {
   } = useResultPage()
 
   if (isDrawing) {
-    return <Spinner title='Sorteando os grupos…' subtitle='Distribuindo as seleções'/>
+    return <Spinner title='Sorteando os grupos…' subtitle='Distribuindo as seleções' />
   }
 
   if (!drawResult) {
