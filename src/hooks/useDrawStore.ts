@@ -1,19 +1,12 @@
 import { create } from 'zustand'
 
-interface DrawRules {
-  conf: boolean
-  pots: boolean
-}
-
 interface DrawState {
   nGroups: number
   groupSize: number
-  rules: DrawRules
   selected: Set<string>
 
   setNGroups: (n: number) => void
   setGroupSize: (n: number) => void
-  toggleRule: (rule: keyof DrawRules) => void
   setPreset: (nGroups: number, groupSize: number) => void
   toggleTeam: (code: string) => void
   clearSelection: () => void
@@ -23,7 +16,6 @@ interface DrawState {
 const INITIAL_STATE = {
   nGroups: 8,
   groupSize: 4,
-  rules: { conf: true, pots: false },
   selected: new Set<string>(),
 }
 
@@ -32,14 +24,6 @@ export const useDrawStore = create<DrawState>((set) => ({
 
   setNGroups: (n) => set({ nGroups: Math.max(2, Math.min(8, n)) }),
   setGroupSize: (n) => set({ groupSize: Math.max(2, Math.min(4, n)) }),
-
-  toggleRule: (rule) =>
-    set((state) => ({
-      rules: {
-        ...state.rules,
-        [rule]: !state.rules[rule],
-      },
-    })),
 
   setPreset: (nGroups, groupSize) =>
     set({

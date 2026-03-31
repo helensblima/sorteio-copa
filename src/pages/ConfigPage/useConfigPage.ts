@@ -8,11 +8,9 @@ export function useConfigPage() {
   const setNGroups = useDrawStore((s) => s.setNGroups)
   const setGroupSize = useDrawStore((s) => s.setGroupSize)
   const setPreset = useDrawStore((s) => s.setPreset)
-  const toggleRule = useDrawStore((s) => s.toggleRule)
   const totalNeeded = useTotalNeeded()
   const nGroups = useDrawStore((s) => s.nGroups)
   const groupSize = useDrawStore((s) => s.groupSize)
-  const rules = useDrawStore((s) => s.rules)
 
   function getActivePreset(): string {
     if (nGroups === 8 && groupSize === 4) return 'copa'
@@ -29,10 +27,8 @@ export function useConfigPage() {
     nGroups,
     groupSize,
     totalNeeded,
-    rules,
     setNGroups,
     setGroupSize,
-    toggleRule,
     navigate,
     presets: PRESETS,
     activePreset: getActivePreset(),

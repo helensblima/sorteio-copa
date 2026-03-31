@@ -1,4 +1,4 @@
-import { Button, Banner, Tooltip, Card, Stepper, Preset, RuleItem } from '@/components'
+import { Button, Banner, Tooltip, Card, Stepper, Preset } from '@/components'
 import { useConfigPage } from './useConfigPage'
 import './styles.scss'
 
@@ -7,12 +7,10 @@ export function ConfigPage() {
     nGroups,
     groupSize,
     totalNeeded,
-    rules,
     activePreset,
     presets,
     setNGroups,
     setGroupSize,
-    toggleRule,
     navigate,
     handlePresetChange,
   } = useConfigPage()
@@ -59,22 +57,6 @@ export function ConfigPage() {
             hint={`${groupSize} times por grupo`}
           />
           <Preset options={presets} active={activePreset} onChange={handlePresetChange} />
-        </Card>
-        <Card title='Regras' titleExtra={<span>(opcional)</span>}>
-          <RuleItem
-            icon='🌍'
-            title='Limitar mesma região'
-            description='Máx. 2 países europeus por grupo — como na Copa real.'
-            enabled={rules.conf}
-            onToggle={() => toggleRule('conf')}
-          />
-          <RuleItem
-            icon='🎯'
-            title='Usar potes'
-            description='1 time de cada nível por grupo — maior equilíbrio.'
-            enabled={rules.pots}
-            onToggle={() => toggleRule('pots')}
-          />
         </Card>
         <Button variant='accent' full size='lg' onClick={() => navigate('/escolha-selecoes')}>
           Próximo: Escolher países →

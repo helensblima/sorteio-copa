@@ -7,13 +7,7 @@ export interface Group {
   teams: Team[]
 }
 
-export interface DrawRules {
-  conf: boolean
-  pots: boolean
-}
-
 export interface DrawSettings {
   nGroups: number
   groupSize: number
-  rules: DrawRules
 }
