@@ -19,7 +19,6 @@ export function useTeamsPage() {
   const [filter, setFilter] = useState('all')
 
   const allTeams = getTeams()
-
   const teams = allTeams
     .filter((team) => {
       if (filter !== 'all' && team.confederation !== filter) return false
@@ -41,6 +40,8 @@ export function useTeamsPage() {
 
   const isLimitReached = selected.size >= totalNeeded
 
+  const performDraw = useDrawStore((s) => s.performDraw)
+
   return {
     teams,
     selected,
@@ -53,5 +54,6 @@ export function useTeamsPage() {
     navigate,
     confederations: CONFEDERATIONS,
     isLimitReached,
+    performDraw,
   }
 }

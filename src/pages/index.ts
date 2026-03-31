@@ -1,3 +1,4 @@
 export { HomePage } from './Home'
 export { ConfigPage } from './ConfigPage'
 export { TeamsPage } from './TeamsPage'
+export { ResultPage } from './ResultPage'

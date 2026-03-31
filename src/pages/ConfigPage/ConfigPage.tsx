@@ -31,33 +31,35 @@ export function ConfigPage() {
           Tudo certo! <strong>{totalNeeded}</strong> países para <strong>{nGroups}</strong> grupos
           de <strong>{groupSize}</strong>.
         </Banner>
-        <Card
-          title='Número de grupos'
-          description='Quantos grupos? Na Copa real são 8.'
-          titleExtra={<Tooltip content='Máximo de 8 grupos — modelo oficial FIFA.' />}
-        >
-          <Stepper
-            value={nGroups}
-            min={2}
-            max={8}
-            onChange={setNGroups}
-            hint={`${nGroups} grupos`}
-          />
-        </Card>
-        <Card
-          title='Times por grupo'
-          description='Quantos países em cada grupo? Na Copa real são 4.'
-          titleExtra={<Tooltip content='Máximo de 4 times por grupo — modelo oficial FIFA.' />}
-        >
-          <Stepper
-            value={groupSize}
-            min={2}
-            max={4}
-            onChange={setGroupSize}
-            hint={`${groupSize} times por grupo`}
-          />
-          <Preset options={presets} active={activePreset} onChange={handlePresetChange} />
-        </Card>
+        <div className='config-page__cards'>
+          <Card
+            title='Número de grupos'
+            description='Quantos grupos? Na Copa real são 8.'
+            titleExtra={<Tooltip content='Máximo de 8 grupos — modelo oficial FIFA.' />}
+          >
+            <Stepper
+              value={nGroups}
+              min={2}
+              max={8}
+              onChange={setNGroups}
+              hint={`${nGroups} grupos`}
+            />
+          </Card>
+          <Card
+            title='Times por grupo'
+            description='Quantos países em cada grupo? Na Copa real são 4.'
+            titleExtra={<Tooltip content='Máximo de 4 times por grupo — modelo oficial FIFA.' />}
+          >
+            <Stepper
+              value={groupSize}
+              min={2}
+              max={4}
+              onChange={setGroupSize}
+              hint={`${groupSize} times por grupo`}
+            />
+            <Preset options={presets} active={activePreset} onChange={handlePresetChange} />
+          </Card>
+        </div>
         <Button variant='accent' full size='lg' onClick={() => navigate('/escolha-selecoes')}>
           Próximo: Escolher países →
         </Button>

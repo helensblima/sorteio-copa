@@ -16,6 +16,7 @@ export function TeamsPage() {
     setFilter,
     navigate,
     isLimitReached,
+    performDraw,
   } = useTeamsPage()
 
   return (
@@ -70,7 +71,8 @@ export function TeamsPage() {
               <h3 className='teams-page__selected-title'>Selecionados</h3>
               {selected.size === 0 ? (
                 <EmptyState icon='🗂️' title='Nenhum país'>
-                  <p>Clique nos países à esquerda.</p>
+                  <p className='teams-page__selected-tmob'>Clique nos países acima.</p>
+                  <p className='teams-page__selected-tdesk'>Clique nos países à esquerda.</p>
                 </EmptyState>
               ) : (
                 <div className='teams-page__chips'>
@@ -93,7 +95,10 @@ export function TeamsPage() {
               variant='default'
               full
               disabled={selected.size !== totalNeeded}
-              onClick={() => navigate('/resultado-sorteio')}
+              onClick={() => {
+                performDraw()
+                navigate('/resultado-sorteio')
+              }}
             >
               🎲 Realizar Sorteio
             </Button>

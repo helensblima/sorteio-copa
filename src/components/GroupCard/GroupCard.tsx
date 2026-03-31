@@ -1,11 +1,13 @@
 import './styles.scss'
 
 interface GroupTeam {
-  flag: string
+  flag?: string
   name: string
-  conf: string
-  confClass: string
-  alt: string
+  code: string
+  conf?: string
+  confClass?: string
+  alt?: string
+  confederation?: string
 }
 
 interface GroupCardProps {
@@ -19,7 +21,10 @@ export function GroupCard({ letter, color, teams, onSwap }: GroupCardProps) {
   return (
     <div className='group-card'>
       <div className='group-card__header' style={onSwap ? { background: color } : undefined}>
-        <span className='group-card__letter' style={!onSwap ? { background: color } : undefined}>
+        <span
+          className='group-card__letter'
+          style={!onSwap ? { background: color } : { display: 'none' }}
+        >
           {letter}
         </span>
         <span className='group-card__label' style={!onSwap ? { color: color } : undefined}>
@@ -44,7 +49,7 @@ export function GroupCard({ letter, color, teams, onSwap }: GroupCardProps) {
             </span>
             {onSwap && (
               <button className='group-card__swap' onClick={() => onSwap(index)}>
-                ↕
+                ↕️
               </button>
             )}
           </div>
