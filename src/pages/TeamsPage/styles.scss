@@ -20,6 +20,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    
+    @include tablet {
+      gap: 1rem;
+    }
 
     @include laptop {
       padding: 1.75rem 1.75rem 3.75rem 0;
@@ -39,8 +43,12 @@
   }
 
   &__subtitle {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: $gray;
+
+    @include tablet {
+      font-size: 0.875rem;
+    }
   }
 
   &__list {
@@ -81,6 +89,20 @@
   &__selected {
     margin: 1.5rem 0 1rem;
     min-height: 14rem;
+  }
+
+  &__selected-tmob {
+    @include laptop {
+      display: none;
+    }
+  }
+
+  &__selected-tdesk {
+    display: none;
+
+    @include laptop {
+      display: block;
+    }
   }
 
   &__chips {
