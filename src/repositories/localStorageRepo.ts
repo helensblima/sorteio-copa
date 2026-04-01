@@ -1,4 +1,4 @@
-import type { Group } from '@/types'
+import type { DrawResult } from '@/types'
 
 const STORAGE_KEY = 'copa-game'
 
@@ -6,7 +6,7 @@ interface StorageData {
   nGroups: number
   groupSize: number
   selected: string[]
-  drawResult: Group[] | null
+  drawResult: DrawResult | null
 }
 
 export function saveState(data: StorageData): void {

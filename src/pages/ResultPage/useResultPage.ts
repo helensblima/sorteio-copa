@@ -26,7 +26,7 @@ export function useResultPage() {
 
   const [swapModal, setSwapModal] = useState<SwapModalState | null>(null)
 
-  const mappedResult = drawResult?.map((group) => ({
+  const mappedResult = drawResult?.groups?.map((group) => ({
     ...group,
     teams: group.teams.map((team) => ({
       ...team,
@@ -45,7 +45,7 @@ export function useResultPage() {
 
   function openSwap(groupIndex: number, teamIndex: number) {
     if (!drawResult) return
-    const team = drawResult[groupIndex].teams[teamIndex]
+    const team = drawResult.groups[groupIndex].teams[teamIndex]
     setSwapModal({
       groupIndex,
       teamIndex,

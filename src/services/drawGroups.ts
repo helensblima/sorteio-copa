@@ -1,12 +1,7 @@
 import { shuffle } from './shuffle'
-import type { Team, Group } from '@/types'
+import type { Team, DrawSettings, Group } from '@/types'
 
-interface DrawConfig {
-  nGroups: number
-  groupSize: number
-}
-
-export function drawGroups(teams: Team[], config: DrawConfig): Group[] {
+export function drawGroups(teams: Team[], config: DrawSettings): Group[] {
   const { nGroups, groupSize } = config
 
   if (teams.length !== nGroups * groupSize) {

@@ -17,7 +17,7 @@ export function ProgressBar({ steps, currentStep, ...props }: ProgressBarProps) 
 
   return (
     <nav className='progress-bar' {...props}>
-      {steps.map((step, index) => {
+      {steps?.map((step, index) => {
         const stepStatus = getStepStatus(index)
 
         return (

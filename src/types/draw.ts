@@ -11,3 +11,8 @@ export interface DrawSettings {
   nGroups: number
   groupSize: number
 }
+
+export interface DrawResult {
+  groups: Group[]
+  timestamp: number
+}

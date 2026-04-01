@@ -2,13 +2,13 @@ import { create } from 'zustand'
 import { drawGroups } from '@/services/drawGroups'
 import { getTeams } from '@/repositories/teamRepository'
 import { saveState, loadState, clearState } from '@/repositories/localStorageRepo'
-import type { Group } from '@/types'
+import type { DrawResult } from '@/types'
 
 interface DrawState {
   nGroups: number
   groupSize: number
   selected: Set<string>
-  drawResult: Group[] | null
+  drawResult: DrawResult | null
   isDrawing: boolean
 }
 
@@ -106,7 +106,8 @@ export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
     set({ isDrawing: true })
 
     setTimeout(() => {
-      const result = drawGroups(selectedTeams, { nGroups, groupSize })
+      const groups = drawGroups(selectedTeams, { nGroups, groupSize })
+      const result: DrawResult = { groups, timestamp: Date.now() }
       set({ drawResult: result, isDrawing: false })
       persist(get())
     }, 1500)
@@ -116,17 +117,22 @@ export const useDrawStore = create<DrawState & DrawActions>((set, get) => ({
     set((state) => {
       if (!state.drawResult) return state
 
-      const next = state.drawResult.map((group) => ({
+      const nextGroups = state?.drawResult?.groups?.map((group) => ({
         ...group,
         teams: [...group.teams],
       }))
 
-      const teamA = next[fromGroup].teams[fromIndex]
-      const teamB = next[toGroup].teams[toIndex]
-      next[fromGroup].teams[fromIndex] = teamB
-      next[toGroup].teams[toIndex] = teamA
+      const teamA = nextGroups[fromGroup].teams[fromIndex]
+      const teamB = nextGroups[toGroup].teams[toIndex]
+      nextGroups[fromGroup].teams[fromIndex] = teamB
+      nextGroups[toGroup].teams[toIndex] = teamA
 
-      return { drawResult: next }
+      return {
+        drawResult: {
+          ...state.drawResult,
+          groups: nextGroups,
+        },
+      }
     })
     persist(get())
   },

@@ -1,2 +1,2 @@
 export type { Team, ConfederationCode } from './team'
-export type { Group, NameGroup } from './draw'
+export type { Group, NameGroup, DrawSettings, DrawResult } from './draw'
