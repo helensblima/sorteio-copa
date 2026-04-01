@@ -80,6 +80,7 @@ src/
 │   ├── CounterRing/
 │   ├── CountriesCarousel/
 │   ├── EmptyState/
+│   ├── ErrorPage/
 │   ├── FilterChip/
 │   ├── GroupCard/
 │   ├── Header/
@@ -101,6 +102,7 @@ src/
 ├── pages/ # Telas da aplicação
 │   ├── ConfigPage/
 │   ├── HomePage/
+│   ├── NotFoundPage/
 │   ├── ResultPage/
 │   └── TeamsPage/
 ├── repositories/  # Camada de acesso a dados
@@ -153,5 +155,7 @@ Convenções:
 - Sistema de potes (distribuição por nível de força)
 - Seed de aleatoriedade para sorteios reproduzíveis
 - Mais animações
+- Adicionar um filtro para selecionar todas as seleções de uma vez só
+- Adicionar página "500"
 - Histórico de sorteios (salvar múltiplos resultados)
 - Compartilhar resultado via Web Share API
