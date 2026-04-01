@@ -7,7 +7,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import prettier from 'eslint-plugin-prettier'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'test', 'coverage']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -22,7 +22,12 @@ export default defineConfig([
     },
     plugins: { prettier },
     rules: {
-      'prettier/prettier': 'warn',
+      'prettier/prettier': [
+        'warn',
+        {
+          endOfLine: 'auto',
+        },
+      ],
     },
   },
 ])
