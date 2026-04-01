@@ -83,6 +83,8 @@ export function SwapModal({
                     <img
                       src={FLAG_MAP[team.code]}
                       alt={FLAG_ALT[team.code] ?? team.name}
+                      width={18}
+                      height={13}
                       className='swap-modal__option-flag'
                     />
                     <span className='swap-modal__option-name'>{team.name}</span>

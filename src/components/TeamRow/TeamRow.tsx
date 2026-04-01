@@ -36,7 +36,7 @@ export function TeamRow({
         }
       }}
     >
-      <img src={flag} alt={alt} className='team-row__flag' />
+      <img src={flag} alt={alt} width={20} height={15} className='team-row__flag' />
       <span className='team-row__name'>{name}</span>
       <span className='team-row__code'>{code}</span>
       <span className={`team-row__conf team-row__conf--${confederation.toLowerCase()}`}>

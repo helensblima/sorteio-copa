@@ -20,6 +20,8 @@ export function CountriesCarousel({ flags }: CountriesCarouselProps) {
               className='countries-carousel__flag'
               src={flag?.src}
               alt={flag.alt}
+              width={35}
+              height={35}
               aria-hidden='true'
             />
           </div>
