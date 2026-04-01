@@ -1,4 +1,4 @@
-export { HomePage } from './Home'
+export { HomePage } from './HomePage'
 export { ConfigPage } from './ConfigPage'
 export { TeamsPage } from './TeamsPage'
 export { ResultPage } from './ResultPage'
