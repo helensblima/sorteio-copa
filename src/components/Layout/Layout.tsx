@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router'
-import './styles.scss'
 import { Header } from '@/components'
+import './styles.scss'
 
 export function Layout() {
   return (
     <>
       <Header />
-      <Outlet />
-      {/* footer */}
+      <main className='layout__content'>
+        <Outlet />
+      </main>
     </>
   )
 }
