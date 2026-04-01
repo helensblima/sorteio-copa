@@ -14,37 +14,38 @@ const mockTeams: Team[] = [
 ]
 
 describe('drawGroups', () => {
-  it('cria a quantidade correta de grupos', () => {
+  it('should create the correct number of groups', () => {
     const result = drawGroups(mockTeams, { nGroups: 2, groupSize: 4 })
     expect(result).toHaveLength(2)
   })
 
-  it('cada grupo tem o tamanho correto', () => {
+  it('should ensure each group has the correct size', () => {
     const result = drawGroups(mockTeams, { nGroups: 4, groupSize: 2 })
     result.forEach((group) => {
       expect(group.teams).toHaveLength(2)
     })
   })
 
-  it('grupos têm letras sequenciais', () => {
+  it('should assign sequential letters as group names', () => {
     const result = drawGroups(mockTeams, { nGroups: 4, groupSize: 2 })
     expect(result.map((g) => g.name)).toEqual(['A', 'B', 'C', 'D'])
   })
 
-  it('não tem times duplicados entre grupos', () => {
+  it('should not have duplicate teams across groups', () => {
     const result = drawGroups(mockTeams, { nGroups: 2, groupSize: 4 })
     const allCodes = result.flatMap((g) => g.teams.map((t) => t.code))
     const unique = new Set(allCodes)
     expect(unique.size).toBe(allCodes.length)
   })
 
-  it('todos os times são distribuídos', () => {
+  it('should distribute all provided teams', () => {
     const result = drawGroups(mockTeams, { nGroups: 2, groupSize: 4 })
     const allCodes = result.flatMap((g) => g.teams.map((t) => t.code))
-    expect(allCodes.sort()).toEqual(mockTeams.map((t) => t.code).sort())
+    const mockCodes = mockTeams.map((t) => t.code)
+    expect(allCodes.sort()).toEqual(mockCodes.sort())
   })
 
-  it('lança erro se quantidade de times não bate', () => {
+  it('should throw an error if the number of teams does not match', () => {
     expect(() => drawGroups(mockTeams, { nGroups: 3, groupSize: 3 })).toThrow()
   })
 })

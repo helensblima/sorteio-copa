@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import { useDrawStore } from '@/hooks/useDrawStore'
 import { saveState, loadState, clearState } from '@/repositories/localStorageRepo'
 
-describe('Persistência: localStorage', () => {
+describe('Persistence: localStorage', () => {
   beforeEach(() => {
     localStorage.clear()
     useDrawStore.setState({
@@ -14,7 +14,7 @@ describe('Persistência: localStorage', () => {
     })
   })
 
-  it('salva estado no localStorage', () => {
+  it('should save the state to localStorage', () => {
     saveState({
       nGroups: 4,
       groupSize: 3,
@@ -29,7 +29,7 @@ describe('Persistência: localStorage', () => {
     expect(saved?.selected).toEqual(['BRA', 'ARG', 'FRA'])
   })
 
-  it('restaura estado ao carregar', () => {
+  it('should restore the state when loading', () => {
     saveState({
       nGroups: 6,
       groupSize: 3,
@@ -38,6 +38,7 @@ describe('Persistência: localStorage', () => {
     })
 
     const saved = loadState()
+    
     if (saved) {
       useDrawStore.setState({
         nGroups: saved.nGroups,
@@ -56,7 +57,7 @@ describe('Persistência: localStorage', () => {
     expect(state.selected.size).toBe(2)
   })
 
-  it('limpa estado do localStorage', () => {
+  it('should clear the state from localStorage', () => {
     saveState({
       nGroups: 4,
       groupSize: 2,
@@ -69,7 +70,7 @@ describe('Persistência: localStorage', () => {
     expect(saved).toBeNull()
   })
 
-  it('retorna null se não tem nada salvo', () => {
+  it('should return null if nothing is saved', () => {
     const saved = loadState()
     expect(saved).toBeNull()
   })

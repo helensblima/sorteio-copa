@@ -13,7 +13,7 @@ function renderWithRouter() {
   )
 }
 
-describe('Fluxo: seleção → sorteio', () => {
+describe('Flow: Selection → Draw Preparation', () => {
   beforeEach(() => {
     useDrawStore.setState({
       nGroups: 2,
@@ -24,7 +24,7 @@ describe('Fluxo: seleção → sorteio', () => {
     })
   })
 
-  it('seleciona times via busca e atualiza contador', async () => {
+  it('should selects teams via search and updates the counter', async () => {
     const user = userEvent.setup()
     renderWithRouter()
 
@@ -35,14 +35,13 @@ describe('Fluxo: seleção → sorteio', () => {
     await user.click(teamRow)
 
     expect(teamRow).toHaveAttribute('aria-checked', 'true')
-
     
-    const state = useDrawStore.getState()
-    expect(state.selected.size).toBe(1)
-    expect(state.selected.has('BRA')).toBe(true)
+    const { selected } = useDrawStore.getState()
+    expect(selected.size).toBe(1)
+    expect(selected.has('BRA')).toBe(true)
   })
 
-  it('botão de sorteio habilita quando atinge o total', async () => {
+  it('should enable the draw button when the required total is reached', async () => {
     const user = userEvent.setup()
     renderWithRouter()
 
@@ -56,7 +55,7 @@ describe('Fluxo: seleção → sorteio', () => {
     expect(drawButton).not.toBeDisabled()
   })
 
-  it('bloqueia seleção ao atingir o limite', async () => {
+  it('should disable further selections once the limit is reached', async () => {
     const user = userEvent.setup()
     renderWithRouter()
 
